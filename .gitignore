@@ -1,0 +1,9 @@
+
+#Dependências
+node_modules/
+
+#dotenv
+.env
+
+# Yarn
+yarn.lock

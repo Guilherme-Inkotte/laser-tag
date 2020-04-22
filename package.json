@@ -1,0 +1,29 @@
+{
+  "name": "laser-tag",
+  "version": "1.0.0",
+  "description": "Arduino Laser Tag",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guilherme-Inkotte/laser-tag.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Guilherme-Inkotte/laser-tag/issues"
+  },
+  "homepage": "https://github.com/Guilherme-Inkotte/laser-tag#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "johnny-five": "^1.4.0",
+    "mongoose": "^5.9.10",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.3"
+  }
+}
