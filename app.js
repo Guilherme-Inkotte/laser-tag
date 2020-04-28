@@ -3,23 +3,23 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
 
-const player = require('./App/routes/player.route')
+// const player = require('./App/routes/player.route')
 
 const app = express()
 
-app.configure(() => {
-    app.use(morgan('tiny'));
-    app.use(cors());
-    
-    app.use(bodyParser.json());
-    app.use('/api/blink', player)    
-})
 
-var server = app.listen(3000)
+app.use(morgan('tiny'));
+app.use(cors());
+
+app.use(bodyParser.json());
+
+app.get('/teste', (req, res) => console.log("deu certo"));
+
+const server = app.listen(3000)
 
 var io = require("socket.io").listen(server)
 
 io.sockets.on('connection', socket => {
-    console.log("Usuário conectado!")
-    socket.emit("info", { msg: "vsf2" })
+  console.log("Usuário conectado!")
+  socket.emit("info", { msg: "vsf2" })
 })
