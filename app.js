@@ -7,14 +7,19 @@ const player = require('./App/routes/player.route')
 
 const app = express()
 
-app.use(morgan('tiny'));
-app.use(cors());
+app.configure(() => {
+    app.use(morgan('tiny'));
+    app.use(cors());
+    
+    app.use(bodyParser.json());
+    app.use('/api/blink', player)    
+})
 
-app.use(bodyParser.json());
-app.use('/api/blink', player)
+var server = app.listen(3000)
 
-let port = 8080;
+var io = require("socket.io").listen(server)
 
-app.listen(port, () => {
-    console.log('Servidor rodando na porta ' + port + '!!!');
-});
+io.sockets.on('connection', socket => {
+    console.log("Usuário conectado!")
+    socket.emit("info", { msg: "vsf2" })
+})
