@@ -7,13 +7,12 @@ const player = require('./App/routes/player.route')
 
 const app = express()
 
-app.configure(() => {
-    app.use(morgan('tiny'));
-    app.use(cors());
-    
-    app.use(bodyParser.json());
-    app.use('/api/blink', player)    
-})
+
+app.use(morgan('tiny'));
+app.use(cors());
+
+app.use(bodyParser.json());
+
 
 var server = app.listen(3000)
 
